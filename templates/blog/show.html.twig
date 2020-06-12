@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <p class="{{ label }}">{{ message }}</p>
+        {% endfor %}
+    {% endfor %}
+
+    <p><a href="{{ path('blog_index') }}">Index Page</a></p>
+
+    <p>{{ post.body }}</p>
+
+
+    <h2>Comments</h2>
+
+    <ul>
+        <li><strong>foo:</strong> awesome idea</li>
+        <li><strong>bar:</strong> what is next?</li>
+    </ul>
+
+    {% if commentForm is defined %}
+        {{ form(commentForm) }}
+    {% else %}
+        <p>You must sign in to write a comment. <a href="{{ path('user_login') }}">Login</a></p>
+    {% endif %}
+
+
+{% endblock %}

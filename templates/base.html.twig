@@ -3,7 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <style type="text/css">
+                body {font-family: sans-serif;}
+                .danger {font-weight:bold;color:red;}
+                .success {font-weight:bold;color:green;}
+            </style>
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
